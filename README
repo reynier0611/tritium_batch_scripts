@@ -1,5 +1,8 @@
 TRITIUM BATCH REPLAY JOB GENERATION
 -----------------------------------
+This code generates and submits the job files needed to do
+a full replay of the raw data on the farm.
+
 Code authors:
 Zhihong Ye
 Evan McClellan
