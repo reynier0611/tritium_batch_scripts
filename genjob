@@ -78,10 +78,10 @@ OUTFILE="/volatile/halla/triton/eep_Rootfiles/pass1/tritium_"${krun}".root"
     echo "./fullReplay "${krun} >>batch_files/batch_${krun}
 
     echo "cd /volatile/halla/triton/eep_Rootfiles/pass1/" >>batch_files/batch_${krun}
-    echo "#for f in tritium_"${krun}"*.root; do" >>batch_files/batch_${krun}
-    echo "#  swif outfile /volatile/halla/triton/eep_Rootfiles/pass1/\$f mss:/mss/halla/triton/prod/coinc_eep/pass1/${kin}/\$f" >>batch_files/batch_${krun}
-    echo "#  echo \"Found \"\$f" >>batch_files/batch_${krun}
-    echo "#done" >>batch_files/batch_${krun}
+    echo "for f in tritium_"${krun}"*.root; do" >>batch_files/batch_${krun}
+    echo "  swif outfile /volatile/halla/triton/eep_Rootfiles/pass1/\$f mss:/mss/halla/triton/prod/coinc_eep/pass1_gmp_LHRS_optics/${kin}/\$f" >>batch_files/batch_${krun}
+    echo "  echo \"Found \"\$f" >>batch_files/batch_${krun}
+    echo "done" >>batch_files/batch_${krun}
 
 #  
     chmod +x batch_files/batch_${krun}
