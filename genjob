@@ -42,7 +42,7 @@ COUNT=0
 #If the data is already in the cache, replay it
 if [ -e $CACHEDIR"/triton_"$krun".dat."$COUNT ]; then
 
-OUTFILE="/volatile/halla/triton/eep_Rootfiles/pass1/tritium_"${krun}".root"
+OUTFILE="/volatile/halla/triton/eep_Rootfiles/pass2/tritium_"${krun}".root"
 
 # ------------------------------------------------------------------------------
 # Verify if batch_files and .tmp.REPLAY exist
@@ -68,7 +68,7 @@ OUTFILE="/volatile/halla/triton/eep_Rootfiles/pass1/tritium_"${krun}".root"
     echo "export LD_LIBRARY_PATH=\${ANALYZER}::\$ROOTSYS/lib:\${LD_LIBRARY_PATH}" >>batch_files/batch_${krun}
     echo "export PATH=\${ROOTSYS}/bin:\${ANALYZER}:\${PATH}" >>batch_files/batch_${krun}
 
-    echo "export OUT_DIR=pass1" >>batch_files/batch_${krun}
+    echo "export OUT_DIR=pass2" >>batch_files/batch_${krun}
 
     echo "cd /work/halla/triton/Rey/Tritium/HallA-Online-Tritium/replay" >>batch_files/batch_${krun}
 
@@ -79,7 +79,7 @@ OUTFILE="/volatile/halla/triton/eep_Rootfiles/pass1/tritium_"${krun}".root"
 
     echo "cd /volatile/halla/triton/eep_Rootfiles/pass1/" >>batch_files/batch_${krun}
     echo "for f in tritium_"${krun}"*.root; do" >>batch_files/batch_${krun}
-    echo "  swif outfile /volatile/halla/triton/eep_Rootfiles/pass1/\$f mss:/mss/halla/triton/prod/coinc_eep/pass1_gmp_LHRS_optics/${kin}/\$f" >>batch_files/batch_${krun}
+    echo "  swif outfile /volatile/halla/triton/eep_Rootfiles/pass1/\$f mss:/mss/halla/triton/prod/coinc_eep/pass2.1/${kin}/\$f" >>batch_files/batch_${krun}
     echo "  echo \"Found \"\$f" >>batch_files/batch_${krun}
     echo "done" >>batch_files/batch_${krun}
 
@@ -98,7 +98,7 @@ OUTFILE="/volatile/halla/triton/eep_Rootfiles/pass1/tritium_"${krun}".root"
     echo "JOBNAME     H3.${midfix}replay"${krun} >>batch_files/jscript_${krun}
     echo "TRACK       analysis" >> batch_files/jscript_${krun}
     echo "TIME        500" >>batch_files/jscript_${krun}
-    echo "MEMORY      5000 MB" >>batch_files/jscript_${krun}
+    echo "MEMORY      3000 MB" >>batch_files/jscript_${krun}
     echo "OS          centos7" >>batch_files/jscript_${krun}
     echo "SINGLE_JOB:    true" >>batch_files/jscript_${krun}
     
